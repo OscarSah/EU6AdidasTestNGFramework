@@ -23,6 +23,6 @@ public WebElement home;
 @FindBy(linkText = "Cart")
 public WebElement cart;
 
-
+public abstract int productAdder(String category, String product);
 
 }
