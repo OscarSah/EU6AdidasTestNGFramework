@@ -28,7 +28,7 @@ public class PurchaseTest extends TestBase {
 
         extentLogger.info("Add items to Cart, and handle the alerts");
         String[][] purchaseInfo = new String[][]{{"Laptops","Sony vaio i5"},{"Laptops","Dell i7 8gb"},
-                {"Monitors","Apple monitor 24"},{"Phones","Nexus "}};
+                {"Monitors","Apple monitor 24"},{"Phones","Nexus 6"}};
         for(String[] strings : purchaseInfo){
             expectedPurchaseAmount+=productPage.productAdder(strings[0],strings[1],wait);
         }
