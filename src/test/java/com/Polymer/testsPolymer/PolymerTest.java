@@ -4,6 +4,8 @@ import com.Polymer.basePolymer.BasePagePolymer;
 import com.Polymer.basePolymer.TestBasePolymer;
 import com.Polymer.pagesPolymer.JavaScriptPage;
 import com.adidas.base.BasePage;
+import com.adidas.utilities.Driver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PolymerTest extends TestBasePolymer {
@@ -23,15 +25,21 @@ Bonus: (optional stretch goal): Edit the content of the second Todo item
 
     @Test
     public void test(){
+        extentLogger = report.createTest("Polymer Test Started");
 
         // The first step should be to load the website: DONE with TestBasePolymer
+        extentLogger.info("Navigate to Main Page of the application");
+
 
         // click within the JavaScript tab
         javaScriptPage.getElementTab("JavaScript").click();
+        extentLogger.info("click within the JavaScript tab");
+
 
         // select the Polymer link
-
         javaScriptPage.getLink("Polymer").click();
-
+        extentLogger.info("select the Polymer link");
+        Assert.assertTrue(driver.getTitle().contains("Polymer"));
+        extentLogger.info("Verify that I am on the Polymer page");
     }
 }
