@@ -1,6 +1,9 @@
 package com.Polymer.testsPolymer;
 
+import com.Polymer.basePolymer.BasePagePolymer;
 import com.Polymer.basePolymer.TestBasePolymer;
+import com.Polymer.pagesPolymer.JavaScriptPage;
+import com.adidas.base.BasePage;
 import org.testng.annotations.Test;
 
 public class PolymerTest extends TestBasePolymer {
@@ -15,10 +18,16 @@ The second step should be: Add two Todo items
 Bonus: (optional stretch goal): Edit the content of the second Todo item
      */
 
+
+    JavaScriptPage javaScriptPage = new JavaScriptPage();
     @Test
     public void test(){
 
         // The first step should be to load the website: DONE with TestBasePolymer
+
+        // click within the JavaScript tab
+        javaScriptPage.getElementTab("JavaScript").click();
+
 
 
     }
