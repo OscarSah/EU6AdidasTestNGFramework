@@ -9,20 +9,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
-    public WebDriver driver = Driver.get();
-    public WebDriverWait wait;
 
-
-    public BasePage(){
-        PageFactory.initElements(driver,this);
+    public BasePage() {
+        PageFactory.initElements(Driver.get(), this);
     }
 
-@FindBy(partialLinkText = "Home")
-public WebElement home;
+    @FindBy(partialLinkText = "Home")
+    public WebElement home;
 
-@FindBy(linkText = "Cart")
-public WebElement cart;
+    @FindBy(linkText = "Cart")
+    public WebElement cart;
 
-public abstract int productAdder(String category, String product);
 
 }

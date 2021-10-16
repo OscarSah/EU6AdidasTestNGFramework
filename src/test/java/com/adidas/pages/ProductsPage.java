@@ -1,6 +1,7 @@
 package com.adidas.pages;
 
 import com.adidas.base.BasePage;
+import com.adidas.utilities.Driver;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,15 +20,15 @@ public WebElement priceText;
 public WebElement addCart;
 
 
-    public int productAdder(String category, String product){
+    public int productAdder(String category, String product, WebDriverWait wait){
         // click on any category  Laptops, Phones, Monitors
-        driver.findElement(By.linkText(category)).click();
+        Driver.get().findElement(By.linkText(category)).click();
 
         // I could not create FindBy Method for products and categories
         // Because FindBy only works with constant
 
         // click on any product that I provide
-        driver.findElement(By.linkText(product)).click();
+        Driver.get().findElement(By.linkText(product)).click();
 
         String[] arrayAmount = priceText.getText().split(" ");
         int listPrice= Integer.parseInt(arrayAmount[0].substring(1));
@@ -35,9 +36,9 @@ public WebElement addCart;
         addCart.click();
 
         // sometimes webpage gives no such ALert exception so we are waiting dynamically
-        wait = new WebDriverWait(driver,10);
+
         wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.get().switchTo().alert();
         alert.accept();
 
         home.click();

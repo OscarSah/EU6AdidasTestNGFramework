@@ -1,8 +1,10 @@
 package com.adidas.pages;
 
 import com.adidas.base.BasePage;
+import com.adidas.utilities.Driver;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,12 +44,8 @@ public  class CartPage extends BasePage {
     public WebElement OK;
 
 
-    @Override
-    public int productAdder(String category, String product) {
-        return 0;
-    }
 
-    public int productRemover(String product){
+    public int productRemover(String product, WebDriverWait wait){
 
         cart.click();
         String productPath = "//td[.='"+product+"']"; //string concatination to get dynamically locator
@@ -55,11 +53,10 @@ public  class CartPage extends BasePage {
         String deletePath = productPath+"/../td[4]/a";
 
         // get the price of deleted product
-        String priceText = driver.findElement(By.xpath(productPricePath)).getText();
+        String priceText = Driver.get().findElement(By.xpath(productPricePath)).getText();
 
         // delete the product
-        driver.findElement(By.xpath(deletePath)).click();
-        wait = new WebDriverWait(driver,10);
+        Driver.get().findElement(By.xpath(deletePath)).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(productPath)));
         return Integer.parseInt(priceText);
 

@@ -14,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 public abstract class TestBase {
 
     protected WebDriver driver;
+
+    //     WebDriver driver = new Chromedriver;
     protected Actions actions;
     protected WebDriverWait wait;
     protected String url;

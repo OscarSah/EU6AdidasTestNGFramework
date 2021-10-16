@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class PurchaseTest extends TestBase {
 
     ProductsPage productPage = new ProductsPage(); //
-    BasePage cartPage = new CartPage(); // polymorfik way
+    BasePage cartPage = new CartPage(); // polymorphic way
 
 
     int expectedPurchaseAmount =0;
@@ -25,12 +25,12 @@ public class PurchaseTest extends TestBase {
         String[][] purchaseInfo = new String[][]{{"Laptops","Sony vaio i5"},{"Laptops","Dell i7 8gb"},
                 {"Monitors","Apple monitor 24"},{"Phones","Nexus 6"}};
         for(String[] strings : purchaseInfo){
-            expectedPurchaseAmount+=productPage.productAdder(strings[0],strings[1]);
+            expectedPurchaseAmount+=productPage.productAdder(strings[0],strings[1],wait);
         }
 
         String[] unwantedProductsInfo = {"Dell i7 8gb","Apple monitor 24"};
         for (String s : unwantedProductsInfo) {
-            expectedPurchaseAmount-= ((CartPage)cartPage).productRemover(s); // I had to cast because created in poly way
+            expectedPurchaseAmount-= ((CartPage)cartPage).productRemover(s, wait); // I had to cast because created in poly way
         }
 
         System.out.println("expectedPurchaseAmount = " + expectedPurchaseAmount);
