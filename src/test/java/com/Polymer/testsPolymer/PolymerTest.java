@@ -1,6 +1,9 @@
 package com.Polymer.testsPolymer;
 
-public class PolymerTest {
+import com.Polymer.basePolymer.TestBasePolymer;
+import org.testng.annotations.Test;
+
+public class PolymerTest extends TestBasePolymer {
 
     /*
 Write a basic browser automation framework to validate a Polymer website.
@@ -11,4 +14,12 @@ and select the Polymer link.
 The second step should be: Add two Todo items
 Bonus: (optional stretch goal): Edit the content of the second Todo item
      */
+
+    @Test
+    public void test(){
+
+        // The first step should be to load the website: DONE with TestBasePolymer
+
+
+    }
 }
