@@ -20,6 +20,7 @@ Bonus: (optional stretch goal): Edit the content of the second Todo item
 
 
     JavaScriptPage javaScriptPage = new JavaScriptPage();
+
     @Test
     public void test(){
 
@@ -28,7 +29,9 @@ Bonus: (optional stretch goal): Edit the content of the second Todo item
         // click within the JavaScript tab
         javaScriptPage.getElementTab("JavaScript").click();
 
+        // select the Polymer link
 
+        javaScriptPage.getLink("Polymer").click();
 
     }
 }
